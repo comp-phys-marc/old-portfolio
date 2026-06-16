@@ -1,0 +1,211 @@
+/* Quantum Visual Sections */
+
+.quantum-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+
+.quantum-section.dark {
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+.quantum-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    opacity: 1;
+    transition: transform 0.3s ease-out;
+}
+
+.quantum-content.zoom-in {
+    transform: scale(1.05);
+}
+
+.circuit-container {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(255, 255, 255, 0.1);
+    max-width: 900px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.circuit-container.dark-mode {
+    background: rgba(20, 20, 20, 0.9);
+    color: #ffffff;
+}
+
+canvas.quantum-circuit {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.circuit-title {
+    display: none;
+}
+
+.circuit-description {
+    display: none;
+}
+
+.circuit-info {
+    display: none;
+}
+
+.info-item {
+    display: none;
+}
+
+.info-label {
+    display: none;
+}
+
+.info-value {
+    display: none;
+}
+
+/* Scroll Zoom Effect */
+@keyframes zoom-in {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.quantum-section.in-view .quantum-content {
+    animation: zoom-in 0.8s ease-out forwards;
+}
+
+.quantum-section.in-view .circuit-container {
+    animation: fade-in-up 1s ease-out forwards;
+}
+
+/* Parallax Background Elements */
+.quantum-bg-element {
+    position: absolute;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.quantum-bg-element.circle {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.quantum-bg-element.line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .quantum-section {
+        min-height: 80vh;
+    }
+
+    .circuit-container {
+        padding: 25px;
+    }
+
+    .circuit-title {
+        font-size: 1.6rem;
+    }
+
+    .circuit-description {
+        font-size: 1rem;
+    }
+
+    .circuit-info {
+        gap: 10px;
+    }
+
+    .info-item {
+        min-width: 130px;
+        padding: 12px;
+    }
+
+    .info-value {
+        font-size: 1.1rem;
+    }
+
+    canvas.quantum-circuit {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .quantum-section {
+        min-height: 60vh;
+    }
+
+    .circuit-container {
+        padding: 15px;
+    }
+
+    .circuit-title {
+        font-size: 1.3rem;
+    }
+
+    .circuit-description {
+        font-size: 0.95rem;
+    }
+
+    .circuit-info {
+        flex-direction: column;
+    }
+
+    .info-item {
+        min-width: 100%;
+    }
+}
+
+/* Animation for circuit elements */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.quantum-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Glow effect */
+.glow {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
+                0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.circuit-container.dark-mode.glow {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2),
+                0 0 40px rgba(255, 255, 255, 0.1);
+}
